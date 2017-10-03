@@ -15,7 +15,7 @@ export default class ListPlayers extends React.Component
 			});
 		}else{
 			return (
-				<p>
+				<p className="center">
 					Add your first to get started.
 				</p>
 			)

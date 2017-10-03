@@ -7,20 +7,21 @@ export default class Player extends React.Component
 	render(){
 		return (
 			<div className="container">
-				<ul className="collection" key={this.props.player._id}>
-					<li className="collection-item avatar">
-				      <img src="public/user.png" alt="" className="circle" />
-				      <span className="title">{this.props.player.name}</span>
-				      <p>{this.props.player.score} point(s)
-				      </p>
-				      <div className="col s4"><a onClick={() => Players.update({_id:this.props.player._id}, {$inc: {score: -1}})} className="secondary-content"><i className="material-icons">remove_circle_outline</i></a></div>
-				      <div className="col s4"> <a onClick={() => Players.update({_id:this.props.player._id}, {$inc: {score: 1}})} className="secondary-content"><i className="material-icons">add_circle</i></a></div>
-				      <div className="col s4"><a onClick={() => Players.remove({_id: this.props.player._id})} className="secondary-content"><i className="material-icons">clear</i></a></div>
-				      
-				     
-				      
-				    </li>
-				</ul>
+				<div className="row">
+			        <div className="col s12" key={this.props.player._id}>
+			          <div className="card blue-grey darken-1">
+			            <div className="card-content white-text">
+			              <span className="card-title">{this.props.player.name}</span>
+			              <p>has {this.props.player.score} point(s).</p>
+			            </div>
+			            <div className="card-action">
+			              <a className="waves-effect waves-light btn" onClick={() => Players.update({_id:this.props.player._id}, {$inc: {score: -1}})}><i class="material-icons">exposure_neg_1</i></a>
+			              <a className="waves-effect waves-light btn" onClick={() => Players.update({_id:this.props.player._id}, {$inc: {score: 1}})}><i class="material-icons">exposure_plus_1</i></a>
+			              <a className="waves-effect waves-light btn" onClick={() => Players.remove({_id: this.props.player._id})}><i class="material-icons">close</i></a>
+			            </div>
+			          </div>
+			        </div>
+			      </div>
 			</div>
 		);
 	}
